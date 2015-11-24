@@ -1,5 +1,5 @@
 {
-  "name": "pingdictate",
+  "name": "pingdicate",
   "version": "0.0.15",
   "description": "get visual indication of average latency to host(s) in your menu bar",
   "main": "pingdicate",
