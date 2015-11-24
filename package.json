@@ -1,6 +1,6 @@
 {
   "name": "pingdictate",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "get visual indication of average latency to host(s) in your menu bar",
   "main": "pingdicate",
   "preferGlobal": true,
