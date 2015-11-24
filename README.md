@@ -22,7 +22,8 @@ to apply your changes, run `launchctl unload ~/Library/LaunchAgents/re.gitigno.p
 ##### uninstall
 
 ```bash
-launchctl unload ~/Library/LaunchAgents/re.gitigno.pingdicate.plist && mv ~/Library/LaunchAgents/re.gitigno.pingdicate.plist ~/.Trash/
+launchctl unload ~/Library/LaunchAgents/re.gitigno.pingdicate.plist && \
+mv ~/Library/LaunchAgents/re.gitigno.pingdicate.plist ~/.Trash/
 ```
 
 to stop, unload and delete the service from `launchctl`.
