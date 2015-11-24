@@ -32,7 +32,6 @@ var child_process = require('child_process')
 var anybar = require('anybar'), Ping = require('ping-lite')
 var anybarProcess = child_process.exec(
   'open ' + argv.anybar,
-  {killSignal: 'SIGTERM'},
   function(err, stdout, stderr) {
     if (err) throw err
   }
@@ -40,7 +39,10 @@ var anybarProcess = child_process.exec(
   return []
 })
 
-process.on('SIGTERM', function() {
+process.on('SIGINT', function() {
+  child_process.execSync('pkill AnyBar')
+  process.exit(0)
+}).on('SIGTERM', function() {
   child_process.execSync('pkill AnyBar')
   process.exit(0)
 })
