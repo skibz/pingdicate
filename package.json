@@ -5,7 +5,8 @@
   "main": "pingdicate",
   "preferGlobal": true,
   "scripts": {
-    "start": "./pingdicate"
+    "start": "./pingdicate",
+    "postinstall": "cp -r $(npm prefix -g)/lib/node_modules/pingdicate/plist ~/Library/LaunchAgents/re.gitigno.pingdicate.plist && launchctl load re.gitigno.pingdicate.plist && launchctl start re.gitigno.pingdicate.plist"
   },
   "keywords": [
     "latency",
