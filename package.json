@@ -1,0 +1,42 @@
+{
+  "name": "pingdictate",
+  "version": "0.0.0",
+  "description": "get visual indication of average latency to host(s) in your menu bar",
+  "main": "pingdicate",
+  "preferGlobal": true,
+  "scripts": {
+    "start": "./pingdicate",
+    "postinstall": "cp re.gitigno.pingdicate.plist ~/Library/LaunchAgents && launchctl load re.gitigno.pingdicate.plist && launchctl start re.gitigno.pingdicate.plist",
+    "postuninstall": "launchctl stop re.gitigno.pingdicate.plist && launchctl unload re.gitigno.pingdicate.plist && mv re.gitigno.pingdicate.plist ~/.Trash/"
+  },
+  "keywords": [
+    "latency",
+    "indicator",
+    "anybar",
+    "ping"
+  ],
+  "os": [
+    "darwin"
+  ],
+  "bugs": {
+    "url": "https://github.com/skibz/pingdicate/issues",
+    "email": "ant@io.co.za"
+  },
+  "bin": {
+    "pingdicate": "pingdicate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skibz/pingdicate.git"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "author": "Ant Cosentino <ant@io.co.za>",
+  "license": "Unlicense",
+  "dependencies": {
+    "anybar": "^1.0.0",
+    "ping-lite": "^1.0.1",
+    "yargs": "^3.30.0"
+  }
+}

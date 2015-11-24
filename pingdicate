@@ -1,0 +1,84 @@
+#!/usr/bin/env node
+
+'use strict'
+
+var argv = (
+  require('yargs').usage('Usage: $0 -h example.com').option('u', {
+    help: true,
+    alias: 'usage',
+    describe: 'Show examples',
+    type: 'boolean',
+    default: false
+  }).option('a', {
+    default: process.env.PINGER_ANYBAR || '/Applications/AnyBar.app',
+    alias: 'anybar',
+    describe: 'Path to AnyBar',
+    type: 'string'
+  }).option('h', {
+    demand: true,
+    describe: 'A single or space delimited list of addresses',
+    type: 'array',
+    alias: 'hosts'
+  }).option('i', {
+    type: 'number',
+    alias: 'interval',
+    default: process.env.PINGER_INTERVAL || 20000,
+    describe: 'Duration between each ping to a host'
+  }).epilogue('https://github.com/skibz/pingdicate').argv
+)
+
+
+var child_process = require('child_process')
+var anybar = require('anybar'), Ping = require('ping-lite')
+var anybarProcess = child_process.exec(
+  'open ' + argv.anybar,
+  {killSignal: 'SIGTERM'},
+  function(err, stdout, stderr) {
+    if (err) throw err
+  }
+), ping, tick = 0, readings = argv.hosts.map(function(host) {
+  return []
+})
+
+process.on('SIGINT', function() {
+  child_process.execSync('pkill AnyBar')
+  process.exit(0)
+}).on('SIGTERM', function() {
+  child_process.execSync('pkill AnyBar')
+  process.exit(0)
+}).on('SIGTSTP', function() {
+  anybar('question')
+}).on('SIGCONT', function() {
+  anybar('white')
+})
+
+setInterval(function() {
+  argv.hosts.forEach(function(host, i, arr) {
+    ping = new Ping(host)
+    ping.send(function(err, latency) {
+      if (err) readings[i].push(NaN)
+      else readings[i].push(latency)
+      if (i !== arr.length - 1) return
+      if (tick % 3 !== 0) return
+
+      var total = readings.reduce(function(prev, curr) {
+        return prev.concat(curr)
+      }), mean = total.reduce(function(prev, curr) {
+        return prev + curr
+      }) / total.length
+
+      if (mean <= 95) {
+        anybar('green')
+      } else if (mean > 95 && mean < 200) {
+        anybar('yellow')
+      } else {
+        anybar('exclamation')
+      }
+
+      tick = 0, readings = argv.hosts.map(function(host) {
+        return []
+      })
+    })
+  })
+  tick += 1
+}, 20000)

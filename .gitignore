@@ -1,0 +1,6 @@
+
+.DS_Store
+.localized
+node_modules/
+coverage/
+*.log
