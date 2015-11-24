@@ -10,7 +10,11 @@
     <string>re.gitigno.pingdicate</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/local/bin/pingdicate -h 197.80.200.1 197.84.209.1 196.38.180.1</string>
+        <string>/usr/local/bin/pingdicate</string>
+        <string>-h</string>
+        <string>197.80.200.1</string>
+        <string>197.84.209.1</string>
+        <string>196.38.180.1</string>
     </array>
 </dict>
 </plist>
