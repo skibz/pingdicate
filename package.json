@@ -6,7 +6,7 @@
   "preferGlobal": true,
   "scripts": {
     "start": "./pingdicate",
-    "install": "cp -r plist ~/Library/LaunchAgents/re.gitigno.pingdicate.plist && launchctl load ~/Library/LaunchAgents/re.gitigno.pingdicate.plist"
+    "install": "launchctl unload ~/Library/LaunchAgents/re.gitigno.pingdicate.plist || true && cp -r plist ~/Library/LaunchAgents/re.gitigno.pingdicate.plist && launchctl load ~/Library/LaunchAgents/re.gitigno.pingdicate.plist"
   },
   "keywords": [
     "latency",
