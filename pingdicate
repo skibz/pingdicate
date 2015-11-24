@@ -40,16 +40,9 @@ var anybarProcess = child_process.exec(
   return []
 })
 
-process.on('SIGINT', function() {
+process.on('SIGTERM', function() {
   child_process.execSync('pkill AnyBar')
   process.exit(0)
-}).on('SIGTERM', function() {
-  child_process.execSync('pkill AnyBar')
-  process.exit(0)
-}).on('SIGTSTP', function() {
-  anybar('question')
-}).on('SIGCONT', function() {
-  anybar('white')
 })
 
 setInterval(function() {
