@@ -20,5 +20,10 @@
     <string>/tmp/pingdicate.out.log</string>
     <key>StandardErrorPath</key>
     <string>/tmp/pingdicate.err.log</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/bin:/usr/bin:/usr/local/bin</string>
+    </dict>
 </dict>
 </plist>
