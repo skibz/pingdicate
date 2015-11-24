@@ -16,5 +16,9 @@
         <string>197.84.209.1</string>
         <string>196.38.180.1</string>
     </array>
+    <key>StandardOutPath</key>
+    <string>/tmp/pingdicate.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/pingdicate.err.log</string>
 </dict>
 </plist>
