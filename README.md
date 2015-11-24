@@ -17,7 +17,7 @@ to change the host addresses or to specify a path to anybar other than `/Applica
 
 if your path to anybar differs from the expected default, add `-a /path/to/your/anybar` in the `ProgramArguments` string.
 
-to apply your changes, run `launchctl stop re.gitigno.pingdicate.plist && launchctl unload re.gitigno.pingdicate && launchctl load re.gitigno.pingdicate` to stop, reload and restart the service.
+to apply your changes, run `launchctl stop re.gitigno.pingdicate && launchctl unload re.gitigno.pingdicate && launchctl load ~/Library/LaunchAgents/re.gitigno.pingdicate.plist` to stop, reload and restart the service.
 
 ##### uninstall
 
