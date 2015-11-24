@@ -5,8 +5,7 @@
   "main": "pingdicate",
   "preferGlobal": true,
   "scripts": {
-    "start": "./pingdicate",
-    // "install": "cp -r ./plist ~/Library/LaunchAgents/re.gitigno.pingdicate.plist && launchctl load re.gitigno.pingdicate.plist && launchctl start re.gitigno.pingdicate.plist"
+    "start": "./pingdicate"
   },
   "keywords": [
     "latency",
