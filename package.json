@@ -6,8 +6,7 @@
   "preferGlobal": true,
   "scripts": {
     "start": "./pingdicate",
-    "postinstall": "cp re.gitigno.pingdicate.plist ~/Library/LaunchAgents && launchctl load re.gitigno.pingdicate.plist && launchctl start re.gitigno.pingdicate.plist",
-    "postuninstall": "launchctl stop re.gitigno.pingdicate.plist && launchctl unload re.gitigno.pingdicate.plist && mv re.gitigno.pingdicate.plist ~/.Trash/"
+    "postinstall": "cp ./re.gitigno.pingdicate.plist ~/Library/LaunchAgents && launchctl load re.gitigno.pingdicate.plist && launchctl start re.gitigno.pingdicate.plist"
   },
   "keywords": [
     "latency",
