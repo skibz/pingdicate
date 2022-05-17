@@ -36,6 +36,6 @@
   "dependencies": {
     "anybar": "^1.0.0",
     "ping-lite": "^1.0.1",
-    "yargs": "^3.30.0"
+    "yargs": "^13.2.4"
   }
 }
