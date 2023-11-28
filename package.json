@@ -34,7 +34,7 @@
   "author": "Ant Cosentino <ant@io.co.za>",
   "license": "Unlicense",
   "dependencies": {
-    "anybar": "^1.0.0",
+    "anybar": "^2.0.0",
     "ping-lite": "^1.0.1",
     "yargs": "^3.30.0"
   }
